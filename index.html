@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    input, button {  /*去除默认样式*/
+        border: none;
+        padding: 0;
+        margin: 0;
+        outline-style: none;
+    }
+    input {
+        vertical-align: middle;/*兼容IE8居中显示*/
+        padding-top: 0;
+        padding-bottom: 0;
+        font-family: "SimSun", "宋体";
+    }
+    #search {
+        width: 538px;
+        height: 75px;
+        position: relative;
+        margin: 100px auto;
+    }
+    input {
+        width: 450px;
+        height: 32px;
+        border: 2px solid red;
+        padding-left: 4px;
+        line-height: 32px;
+        font-size: 16px;
+        color: #666;
+        float: left;
+        font-weight: 400;
+    }
+    label {
+        font-size: 16px;
+        color: #ccc;
+        line-height: 32px;
+        position: absolute;
+        left: 10px;
+        top: 3px;
+        cursor: text;
+    }
+    button {
+        width: 80px;
+        height: 36px;
+        background-color: red;
+        color: #fff;
+        float: left;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+  <div id="search">
+    <input type="text" id="txt">
+    <label for="txt" id="message">必败的国际大牌</label>
+    <button>搜索</button>
+</div>
+
+<script>
+    function $(id) {return document.getElementById(id);}
+
+    // 检测用户表单输入内容 oninput是大部分浏览器支持  onpropertychange支持IE6、7、8
+    $("txt").oninput = $("txt").onpropertychange = function() {
+        if (this.value == "") {
+            $("message").style.display = "block";
+        } else {
+            $("message").style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
